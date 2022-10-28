@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { WeatherModule } from './weather/weather.module';
+import { FilelogModule } from './filelog/filelog.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { WeatherModule } from './weather/weather.module';
       synchronize: true,
       multipleStatements: true
     }),
-    WeatherModule
+    WeatherModule,
+    FilelogModule
   ],
   controllers: [AppController],
   providers: [AppService],
