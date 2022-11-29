@@ -132,6 +132,15 @@ app.get("/weather/thoi-tiet-bay-ngay-toi/:cityId", (req, res) => {
   });
 });
 
+app.get("/weather/thoi-tiet/:cityId", (req, res) => {
+  let cityId = req.params.cityId;
+  const sql = `CALL thoiTiet(${cityId});`;
+  db.query(sql, function (err, data) {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
 app.listen(POST, () => {
   console.log(POST);
 });
